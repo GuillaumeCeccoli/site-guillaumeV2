@@ -99,7 +99,7 @@ export default function Home() {
           </Carousel>
         </div>
       </section>
-      <section className="mb-20 -mt-32 flex flex-col items-center w-full">
+      <section className="mb-20 flex flex-col items-center w-full">
         <h2 className="text-2xl my-20 lg:text-4xl">Contact</h2>
         <form
           action=""
