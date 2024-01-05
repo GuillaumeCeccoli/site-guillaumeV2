@@ -18,7 +18,7 @@ export default function Nav() {
       <ul className="flex flex-row justify-around items-center mx-auto w-full lg:w-3/5">
         <li className="hidden sm:block">
           <Image
-            src="/assets/logo.svg"
+            src="/assets/Logo.svg"
             width={35}
             height={35}
             alt="logo de creanumerik04"
