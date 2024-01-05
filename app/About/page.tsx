@@ -7,6 +7,7 @@ export default function About() {
   return (
     <div className="relative min-h-screen flex flex-col items-center background">
       <Nav />
+      <h1 className="mt-20 text-3xl sm:mt-40 md:text-4xl">Qui suis-je ?</h1>
       <article className="mt-20 flex flex-col items-center lg:w-4/5 lg:flex-row lg:justify-around lg:mt-44">
         <div className="w-4/5 mb-20 sm:w-2/5 lg:w-1/3 lg:mb-0 xl:w-1/4">
           <Image
