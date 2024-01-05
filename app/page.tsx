@@ -31,22 +31,10 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col items-center background">
       <Nav />
-      <header className="flex flex-col items-center w-full md:mt-28 xl:w-4/5">
-        <h1 className="text-2xl my-10 sm:mb-10 sm:mt-40 md:mb-0 md:mr-[46%] lg:mr-[40%] xl:mr-[38%] md:text-4xl 2xl:mr-[34%]">
-          Guillaume Ceccoli
-        </h1>
-        <div className="w-4/5 flex flex-col items-center md:flex-row-reverse xl:h-32">
-          <div className="overflow-hidden drop-shadow-xl w-2/3 md:-mt-20 md:w-1/3 md:ml-20 xl:w-1/4 xl:mr-20 2xl:mr-40">
-            <Image
-              src="/assets/Guillaume.png"
-              width={500}
-              height={500}
-              objectFit="cover"
-              alt="Photo de Guillaume Ceccoli format portrait"
-              className="w-full"
-            />
-          </div>
-          <div className="flex flex-row justify-around items-center w-4/5 my-10 sm:w-3/5 md:w-2/5 md:mr-[13%] xl:w-1/4 xl:mr-[20%] 2xl:mr-[15%] xl:my-0">
+      <header className="flex flex-col items-center w-full mt-20 lg:mt-40 xl:w-4/5">
+        <div className="w-full flex flex-col items-center">
+          <h1 className="text-2xl lg:text-4xl mt-10">Guillaume Ceccoli</h1>
+          <div className="flex flex-row items-center justify-around w-4/5 my-14 sm:w-3/5 lg:w-2/5 xl:w-1/4">
             {socialLinks.map((link, id) => (
               <Link
                 key={id}
@@ -59,8 +47,26 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <div className="w-full flex flex-col items-center md:flex-row md:justify-around md:w-4/5">
+          <div className="w-2/5 md:w-1/3 lg:mt-12 lg:w-1/4">
+            <Image
+              src="/assets/Guillaume.png"
+              width={1000}
+              height={1000}
+              objectFit="cover"
+              alt="Photo de Guillaume Ceccoli format portrait"
+              className="w-full"
+            />
+          </div>
+          <p className="italic mt-16 text-center w-4/5 sm:text-lg md:w-1/2 md:mt-0 lg:w-1/3">
+            Passionné par le développement web, je propose des solutions pour
+            mettre en lumière votre identité numérique. D&apos; un naturel
+            curieux, autonome et rigoureux, je suis à l&apos; écoute de vos
+            besoins pour vous proposer des solutions adaptées.
+          </p>
+        </div>
       </header>
-      <section className="flex flex-col items-center mt-20 lg:mt-40">
+      <section className="flex flex-col items-center mt-20" id="projects">
         <h2 className="text-2xl py-5 lg:text-4xl">Projets réalisés</h2>
         <div className="w-3/4 flex flex-col items-center mt-10 mb-10 md:mb-0 lg:w-3/5">
           <Carousel className="w-5/6">
@@ -99,7 +105,7 @@ export default function Home() {
           </Carousel>
         </div>
       </section>
-      <section className="mb-20 flex flex-col items-center w-full">
+      <section className="mb-20 flex flex-col items-center w-full" id="contact">
         <h2 className="text-2xl my-20 lg:text-4xl">Contact</h2>
         <form
           action=""

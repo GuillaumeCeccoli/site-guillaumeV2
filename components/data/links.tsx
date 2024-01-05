@@ -47,7 +47,7 @@ export const links: Link[] = [
   {
     id: "projects",
     title: "Projets",
-    href: "/",
+    href: "#projects",
     icon: <FolderOpenDot />,
     underline: true,
     scale: false,
@@ -63,7 +63,7 @@ export const links: Link[] = [
   {
     id: "mail",
     title: "Contact",
-    href: "/",
+    href: "#contact",
     icon: <Mail />,
     className: "sm:background-btn sm:p-2 sm:font-bold sm:rounded-full",
     underline: false,
@@ -75,19 +75,19 @@ export const socialsLinks: SocialLink[] = [
   {
     id: "github",
     title: "GitHub",
-    icon: <Github size={32} />,
+    icon: <Github size={40} />,
     href: "https://github.com/GuillaumeCeccoli",
   },
   {
     id: "linkedin",
     title: "Linkedin",
-    icon: <Linkedin size={32} />,
+    icon: <Linkedin size={40} />,
     href: "https://www.linkedin.com/in/guillaume-ceccoli/",
   },
   {
     id: "malt",
     title: "Malt",
-    icon: <MSquare size={32} />,
+    icon: <MSquare size={40} />,
     href: "https://www.malt.fr/profile/guillaumececcoli?overview",
   },
 ];
