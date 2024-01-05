@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -9,63 +9,111 @@
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
- 
+
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
- 
+
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
- 
+
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
- 
+
     --accent: 0 0% 96.1%;
     --accent-foreground: 0 0% 9%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
- 
+
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
- 
+
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
- 
+
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
- 
+
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
- 
+
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
- 
+
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
- 
+
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
   }
+  .background {
+    background-color: #eef7fc;
+  }
+  .background-btn {
+    background-color: #b6daea;
+  }
+  .background-card {
+    background-color: #d4e4f7;
+  }
+  .underline-from-center {
+    position: relative;
+  }
+
+  .underline-from-center::before,
+  .underline-from-center::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    background: currentColor;
+    transition: width 0.1s ease-in-out;
+  }
+
+  .underline-from-center::before {
+    left: 50%;
+  }
+
+  .underline-from-center::after {
+    right: 50%;
+  }
+
+  .underline-from-center:hover::before,
+  .underline-from-center:hover::after {
+    width: 50%;
+  }
+  .scale-on-hover {
+    transition: transform 0.1s ease-in-out;
+  }
+  .scale-on-hover:hover {
+    transform: scale(1.1);
+  }
+  .transition-input {
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .transition-label {
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
@@ -74,3 +122,4 @@
     @apply bg-background text-foreground;
   }
 }
+

@@ -15,6 +15,9 @@ export type Link = {
   title?: string;
   href: string;
   icon?: ReactElement;
+  className?: string;
+  underline: boolean;
+  scale: boolean;
 };
 
 export type SocialLink = {
@@ -30,30 +33,41 @@ export const links: Link[] = [
     title: "Accueil",
     href: "/",
     icon: <Home />,
+    underline: true,
+    scale: false,
   },
   {
     id: "about",
     title: "A propos",
     href: "/",
     icon: <CircleUserRound />,
+    underline: true,
+    scale: false,
   },
   {
     id: "projects",
     title: "Projets",
     href: "/",
     icon: <FolderOpenDot />,
+    underline: true,
+    scale: false,
   },
-  {
+  /*   {
     id: "blog",
     title: "Blog",
     href: "/",
     icon: <Pencil />,
-  },
+    underline: true,
+    scale: false,
+  }, */
   {
     id: "mail",
     title: "Contact",
     href: "/",
     icon: <Mail />,
+    className: "sm:background-btn sm:p-2 sm:font-bold sm:rounded-full",
+    underline: false,
+    scale: true,
   },
 ];
 
@@ -61,19 +75,19 @@ export const socialsLinks: SocialLink[] = [
   {
     id: "github",
     title: "GitHub",
-    icon: <Github />,
+    icon: <Github size={32} />,
     href: "https://github.com/GuillaumeCeccoli",
   },
   {
     id: "linkedin",
     title: "Linkedin",
-    icon: <Linkedin />,
+    icon: <Linkedin size={32} />,
     href: "https://www.linkedin.com/in/guillaume-ceccoli/",
   },
   {
     id: "malt",
     title: "Malt",
-    icon: <MSquare />,
+    icon: <MSquare size={32} />,
     href: "https://www.malt.fr/profile/guillaumececcoli?overview",
   },
 ];
