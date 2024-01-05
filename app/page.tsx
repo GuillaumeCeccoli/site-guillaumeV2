@@ -20,6 +20,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useState } from "react";
+import Foot from "@/components/widgets/foot";
 
 export default function Home() {
   const { socialLinks } = useLinks();
@@ -31,9 +32,9 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col items-center background">
       <Nav />
-      <header className="flex flex-col items-center w-full mt-20 lg:mt-40 xl:w-4/5">
+      <header className="flex flex-col items-center w-full mt-10 sm:mt-20 lg:mt-40 xl:w-4/5">
         <div className="w-full flex flex-col items-center">
-          <h1 className="text-2xl lg:text-4xl mt-10">Guillaume Ceccoli</h1>
+          <h1 className="text-3xl lg:text-4xl mt-10">Guillaume Ceccoli</h1>
           <div className="flex flex-row items-center justify-around w-4/5 my-14 sm:w-3/5 lg:w-2/5 xl:w-1/4">
             {socialLinks.map((link, id) => (
               <Link
@@ -105,7 +106,10 @@ export default function Home() {
           </Carousel>
         </div>
       </section>
-      <section className="mb-20 flex flex-col items-center w-full" id="contact">
+      <section
+        className="mb-20 flex flex-col items-center w-10/12 sm;w-full"
+        id="contact"
+      >
         <h2 className="text-2xl my-20 lg:text-4xl">Contact</h2>
         <form
           action=""
@@ -173,6 +177,7 @@ export default function Home() {
           </Button>
         </form>
       </section>
+      <Foot />
     </div>
   );
 }
