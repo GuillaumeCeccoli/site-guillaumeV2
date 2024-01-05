@@ -125,11 +125,11 @@ export default function Home() {
               />
               <label
                 htmlFor=""
-                className={`absolute left-0 text-sm px-1 text-black transition-all duration-200 pointer-events-none ${
-                  focusState.name ? "top-0" : "top-7"
+                className={`absolute left-1 px-1 text-black transition-all duration-200 pointer-events-none ${
+                  focusState.name ? "-top-1" : "top-7"
                 }`}
               >
-                Nom
+                Nom :
               </label>
             </div>
             <div className="relative w-full md:w-4/5">
@@ -141,11 +141,11 @@ export default function Home() {
               />
               <label
                 htmlFor=""
-                className={`absolute left-0 text-sm px-1 text-black transition-all duration-200 pointer-events-none ${
-                  focusState.mail ? "top-0" : "top-7"
+                className={`absolute left-1 px-1 text-black transition-all duration-200 pointer-events-none ${
+                  focusState.mail ? "-top-1" : "top-7"
                 }`}
               >
-                Mail
+                Mail :
               </label>
             </div>
           </div>
@@ -162,11 +162,11 @@ export default function Home() {
             <label
               htmlFor=""
               id="message"
-              className={`absolute left-0 text-sm px-1 text-black transition-all duration-200 pointer-events-none ${
-                focusState.message ? "top-0" : "top-7"
+              className={`absolute left-1 px-1 text-black transition-all duration-200 pointer-events-none ${
+                focusState.message ? "-top-1" : "top-7"
               }`}
             >
-              Message
+              Message :
             </label>
           </div>
           <Button
