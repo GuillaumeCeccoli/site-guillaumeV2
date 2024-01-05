@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col items-center background">
       <Nav />
-      <header className="flex flex-col items-center w-full md:mt-20 xl:w-4/5">
+      <header className="flex flex-col items-center w-full md:mt-28 xl:w-4/5">
         <h1 className="text-2xl my-10 sm:mb-10 sm:mt-40 md:mb-0 md:mr-[46%] lg:mr-[40%] xl:mr-[38%] md:text-4xl 2xl:mr-[34%]">
           Guillaume Ceccoli
         </h1>
@@ -99,7 +99,7 @@ export default function Home() {
           </Carousel>
         </div>
       </section>
-      <section className="mb-20 -mt-24 flex flex-col items-center w-full">
+      <section className="mb-20 -mt-32 flex flex-col items-center w-full">
         <h2 className="text-2xl my-20 lg:text-4xl">Contact</h2>
         <form
           action=""
@@ -161,7 +161,7 @@ export default function Home() {
           </div>
           <Button
             type="submit"
-            className="bg-[#b6daea] text-black scale-on-hover hover:bg-[#b6daea]"
+            className="bg-[#b6daea] text-black scale-on-hover hover:bg-[#b6daea] lg:text-xl p-6"
           >
             Envoyer
           </Button>
