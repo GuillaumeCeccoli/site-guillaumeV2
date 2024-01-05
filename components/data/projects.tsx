@@ -15,7 +15,7 @@ export const projects: Projects[] = [
     image: "/assets/site-delphine.png",
     year: "2023",
     type: "Site web | Psychologie",
-    description: "Site web pour une psychologue.",
+    description: "Site web pour une psychologue des Pennes Mirabeau.",
     link: "/",
   },
   {
