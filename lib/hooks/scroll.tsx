@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 export default function Scroll() {
-  const [scroll, setScroll] = useState(window.scrollY > 10);
+  const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
