@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col items-center background">
       <Nav />
-      <section className="flex flex-col items-center w-full mt-10 sm:mt-20 lg:mt-40 xl:w-4/5">
+      <section className="flex flex-col items-center w-full mt-10 sm:mt-20 lg:mt-40 sm:mb-20 xl:w-4/5">
         <div className="w-full flex flex-col items-center">
           <h1 className="text-3xl lg:text-4xl mt-10">Guillaume Ceccoli</h1>
           <div className="flex flex-row items-center justify-around w-4/5 my-14 sm:w-3/5 lg:w-2/5 xl:w-1/4">
@@ -67,10 +67,10 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center mt-20" id="projects">
+      <section className="flex flex-col items-center my-20" id="projects">
         <h2 className="text-2xl py-5 lg:text-4xl">Projets réalisés</h2>
-        <div className="w-3/4 flex flex-col items-center mt-10 mb-10 md:mb-0 lg:w-3/5">
-          <Carousel className="w-5/6">
+        <div className="w-3/4 flex flex-col items-center mt-10 mb-10 lg:w-3/5">
+          <Carousel className="w-5/6 caroussel-container flex items-center">
             <CarouselPrevious className="md:-mx-14" />
             <CarouselContent>
               {projects.map((project: Projects, id) => (

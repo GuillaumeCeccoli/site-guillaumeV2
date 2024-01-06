@@ -20,7 +20,7 @@ export default function Project() {
   return (
     <div className="relative min-h-screen flex flex-col items-center background">
       <Nav />
-      <div className="flex flex-col items-center w-4/5 mt-20 sm:mt-40">
+      <div className="flex flex-col items-center w-3/5 mt-20 sm:mt-40">
         <h1 className="font-bold text-2xl mb-20 md:text-3xl">
           {project.title}
         </h1>
@@ -31,7 +31,7 @@ export default function Project() {
           alt={project.alt}
           className="rounded-xl w-full"
         />
-        <div className="flex flex-col items-start mt-10 mb-40 gap-5">
+        <div className="flex flex-col items-start mt-20 mb-40 gap-5">
           <h3 className="font-bold">Année :</h3>
           <p>{project.year}</p>
           <h3 className="font-bold">Type du projet : </h3>
@@ -41,7 +41,18 @@ export default function Project() {
             {project.title}
           </Link>
           <h3 className="font-bold">Technologies utilisées :</h3>
-          <span>??</span>
+          <div className="flex flex-row items-center space-x-4">
+            {project.techno &&
+              project.techno.map((techno, index) => (
+                <Image
+                  key={index}
+                  src={techno}
+                  alt={`techno logo ${index}`}
+                  width={32}
+                  height={32}
+                />
+              ))}
+          </div>
           <h3 className="font-bold">Description :</h3>
           <p>{project.detail}</p>
         </div>
