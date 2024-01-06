@@ -39,7 +39,7 @@ export const links: Link[] = [
   {
     id: "about",
     title: "A propos",
-    href: "/about",
+    href: "/pages/about",
     icon: <CircleUserRound />,
     underline: true,
     scale: false,
