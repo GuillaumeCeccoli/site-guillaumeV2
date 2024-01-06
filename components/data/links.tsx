@@ -63,7 +63,7 @@ export const links: Link[] = [
   {
     id: "mail",
     title: "Contact",
-    href: "#contact",
+    href: "/#contact",
     icon: <Mail />,
     className: "sm:background-btn sm:p-2 sm:font-bold sm:rounded-full",
     underline: false,
