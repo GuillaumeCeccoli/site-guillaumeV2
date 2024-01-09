@@ -19,10 +19,116 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useState } from "react";
+import React, { useState } from "react";
 import Foot from "@/components/widgets/foot";
+import z, { set } from "zod";
+import { Control, Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const formSchema = z.object({
+  name: z
+    .string()
+    .min(2, { message: "Votre nom ne peut être inférieur a 2 caractères" })
+    .max(50, { message: "Votre nom ne peut pas exceder 50 caractères" })
+    .refine((value) => /^[A-Za-z]+$/.test(value), {
+      message: "Votre nom ne peut contenir que des lettres",
+    }),
+  mail: z.string().email({ message: "Votre mail n'est pas valide" }),
+  message: z
+    .string()
+    .min(10, { message: "Votre message est trop court" })
+    .max(3000, { message: "Votre message est trop long" }),
+});
+
+type FormFieldComponentProps = {
+  control: Control<z.infer<typeof formSchema>>;
+  name: keyof z.infer<typeof formSchema>;
+  label: string;
+  setIsFocus: (focusState: any) => void;
+  textarea: boolean;
+  cols?: number;
+  rows?: number;
+};
+
+const FormFieldComponent: React.FC<FormFieldComponentProps> = ({
+  control,
+  name,
+  label,
+  setIsFocus,
+  textarea,
+  cols,
+  rows,
+}) => {
+  const [isFocused, setIsFocused] = useState(false);
+  const Field = textarea ? "textarea" : "input";
+  return (
+    <Controller
+      control={control}
+      name={name}
+      render={({ field, fieldState: { error } }) => (
+        <div className="relative w-full md:w-4/5">
+          <Field
+            {...field}
+            id={name}
+            className="background-card p-2 px-2 bg-blue-200 rounded-sm outline-none text-black my-8 w-full"
+            onFocus={() => {
+              setIsFocus({ [name]: true });
+              setIsFocused(true);
+            }}
+            onBlur={(e) => {
+              if (e.target.value !== "") return;
+              setIsFocus({ [name]: false });
+              setIsFocused(false);
+            }}
+            rows={rows}
+            cols={cols}
+          />
+          <label
+            htmlFor={name}
+            className={`absolute left-1 px-1 text-black transition-all duration-200 pointer-events-none ${
+              isFocused || field.value ? "top-2" : "top-10"
+            }`}
+          >
+            {label}
+          </label>
+          {error && <p className="text-red-500 -mt-6">{error.message}</p>}
+        </div>
+      )}
+    />
+  );
+};
 
 export default function Home() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      mail: "",
+      message: "",
+    },
+  });
+  const onSubmit = async () => {
+    const values = form.getValues();
+
+    try {
+      const response = await fetch("/api/contactData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+      if (!response.ok) throw new Error("Une erreur est survenue");
+      form.reset({
+        name: "",
+        mail: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const { socialLinks } = useLinks();
   const [focusState, setIsFocus] = useState({
     name: false,
@@ -54,7 +160,6 @@ export default function Home() {
               src="/assets/Guillaume.png"
               width={1000}
               height={1000}
-              objectFit="cover"
               alt="Photo de Guillaume Ceccoli format portrait"
               className="w-full"
             />
@@ -113,74 +218,44 @@ export default function Home() {
         <h2 className="text-2xl my-20 lg:text-4xl">Contact</h2>
         <form
           action=""
-          className="flex flex-col items-center md:w-4/5 md:mx-auto lg:w-1/2"
+          className="flex flex-col items-center w-full md:w-4/5 md:mx-auto lg:w-2/5"
+          onSubmit={form.handleSubmit(onSubmit)}
         >
-          <div className="flex flex-col items-center w-full md:flex-row md:space-x-5">
-            <div className="relative w-full md:w-4/5">
-              <input
-                type="text"
-                className="background-card p-2 px-2 bg-blue-200 rounded-sm outline-none text-black my-5 w-full"
-                onFocus={() => setIsFocus({ ...focusState, name: true })}
-                onBlur={(e) => {
-                  if (e.target.value !== "") return;
-                  setIsFocus({ ...focusState, name: false });
-                }}
-              />
-              <label
-                htmlFor=""
-                className={`absolute left-1 px-1 text-black transition-all duration-200 pointer-events-none ${
-                  focusState.name ? "-top-1" : "top-7"
-                }`}
-              >
-                Nom :
-              </label>
-            </div>
-            <div className="relative w-full md:w-4/5">
-              <input
-                type="text"
-                className="background-card p-2 px-2 bg-blue-200 rounded-sm outline-none text-black my-5 w-full"
-                onFocus={() => setIsFocus({ ...focusState, mail: true })}
-                onBlur={(e) => {
-                  if (e.target.value !== "") return;
-                  setIsFocus({ ...focusState, mail: false });
-                }}
-              />
-              <label
-                htmlFor=""
-                className={`absolute left-1 px-1 text-black transition-all duration-200 pointer-events-none ${
-                  focusState.mail ? "-top-1" : "top-7"
-                }`}
-              >
-                Mail :
-              </label>
-            </div>
-          </div>
-          <div className="relative w-full">
-            <textarea
+          <div className="flex flex-col items-center w-full">
+            <FormFieldComponent
+              control={form.control}
+              name="name"
+              label="Votre nom : "
+              setIsFocus={(focus) =>
+                setIsFocus((prev) => ({ ...prev, ...focus }))
+              }
+              textarea={false}
+            />
+            <FormFieldComponent
+              control={form.control}
+              name="mail"
+              label="Votre mail : "
+              setIsFocus={(focus) =>
+                setIsFocus((prev) => ({ ...prev, ...focus }))
+              }
+              textarea={false}
+            />
+            <FormFieldComponent
+              control={form.control}
               name="message"
-              id="message"
-              cols={30}
-              rows={10}
-              className="background-card p-2 px-2 bg-blue-200 rounded-sm outline-none text-black my-5 w-full"
-              onFocus={() => setIsFocus({ ...focusState, message: true })}
-              onBlur={(e) => {
-                if (e.target.value !== "") return;
-                setIsFocus({ ...focusState, message: false });
-              }}
-            ></textarea>
-            <label
-              htmlFor=""
-              id="message"
-              className={`absolute left-1 px-1 text-black transition-all duration-200 pointer-events-none ${
-                focusState.message ? "-top-1" : "top-7"
-              }`}
-            >
-              Message :
-            </label>
+              label="Votre message : "
+              setIsFocus={(focus) =>
+                setIsFocus((prev) => ({ ...prev, ...focus }))
+              }
+              textarea={true}
+              cols={10}
+              rows={20}
+            />
           </div>
+
           <Button
             type="submit"
-            className="bg-[#b6daea] text-black scale-on-hover hover:bg-[#b6daea] lg:text-xl p-6"
+            className="bg-[#b6daea] text-black scale-on-hover hover:bg-[#b6daea] lg:text-xl p-6 my-4"
           >
             Envoyer
           </Button>

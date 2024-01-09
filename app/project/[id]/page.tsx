@@ -9,7 +9,11 @@ import Foot from "@/components/widgets/foot";
 import Link from "next/link";
 
 export default function Project() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
+  if (!params) {
+    return <div>Projet non trouvé</div>;
+  }
+  const { id } = params;
 
   const project = projects.find((project) => project.id === id);
 
