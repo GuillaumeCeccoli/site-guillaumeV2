@@ -24,8 +24,8 @@ export default function Project() {
   return (
     <div className="relative min-h-screen flex flex-col items-center background">
       <Nav />
-      <div className="flex flex-col items-center w-3/5 mt-20 sm:mt-40">
-        <h1 className="font-bold text-2xl mb-20 md:text-3xl">
+      <div className="flex flex-col items-center w-11/12 sm:w-4/5 xl:w-3/5 mt-20 sm:mt-40">
+        <h1 className="font-bold text-2xl mb-20 xl:text-4xl xl:mt-32 xl:mb-40 md:text-3xl">
           {project.title}
         </h1>
         <Image
@@ -33,9 +33,9 @@ export default function Project() {
           width={1000}
           height={1000}
           alt={project.alt}
-          className="rounded-xl w-full"
+          className="rounded-xl w-full xl:w-4/5"
         />
-        <div className="flex flex-col items-start mt-20 mb-40 gap-4">
+        <div className="flex flex-col items-start mt-20 mb-40 gap-4 xl:w-4/5">
           <h3 className="font-bold">Année :</h3>
           <p>{project.year}</p>
           <h3 className="font-bold">Type du projet : </h3>

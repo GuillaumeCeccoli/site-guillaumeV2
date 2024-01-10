@@ -148,7 +148,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="w-full flex flex-col items-center md:flex-row md:justify-around md:w-4/5">
+        <div className="w-full flex flex-col items-center mt-20 md:flex-row md:justify-around md:w-4/5">
           <div className="w-2/5 md:w-1/3 lg:mt-12 lg:w-1/4">
             <Image
               src="/assets/Guillaume.png"
