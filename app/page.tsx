@@ -168,11 +168,11 @@ export default function Home() {
       </section>
       <section className="flex flex-col items-center my-32" id="projects">
         <h2 className="text-2xl py-5 my-10 lg:text-4xl">Projets réalisés</h2>
-        <div className="w-3/4 flex flex-col items-center xl:flex-row xl:justify-between xl:w-4/5 xl:flex-wrap 2xl:w-3/5">
+        <div className="w-3/4 flex flex-col items-center xl:flex-row xl:justify-between xl:w-11/12 xl:flex-wrap 2xl:w-3/5">
           {projects.map((project: Projects, id) => (
             <Card
               key={id}
-              className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-1/3 xl:mx-2 2xl:w-5/12"
+              className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12"
             >
               <CardHeader className="w-full">
                 <Image
@@ -198,7 +198,7 @@ export default function Home() {
               </CardFooter>
             </Card>
           ))}
-          <Card className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-1/3 xl:mx-2 2xl:w-5/12">
+          <Card className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12">
             <CardHeader className="w-full">
               <Image
                 src="/assets/interview.jpg"
@@ -214,7 +214,7 @@ export default function Home() {
             <CardFooter>
               <Link
                 href="#contact"
-                className="background-btn p-6 rounded-full mx-auto my-5 text-xs scale-on-hover sm:text-sm md:text-2xl font-bold xl:my-14 2xl:my-5"
+                className="background-btn p-6 rounded-full mx-auto my-5 text-xs scale-on-hover sm:text-sm md:text-2xl font-bold"
               >
                 Contact
               </Link>
