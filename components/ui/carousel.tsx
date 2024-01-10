@@ -132,7 +132,10 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn("relative", className)}
+          className={cn(
+            "relative flex items-center justify-between",
+            className
+          )}
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -232,7 +235,7 @@ const CarouselNext = React.forwardRef<
       className={cn(
         "absolute h-10 w-10 rounded-full md:h-20 md:w-20 xl:h-24 xl:w-24",
         orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
+          ? "-right-12 top-1/2 transform -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}

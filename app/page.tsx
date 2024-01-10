@@ -255,7 +255,7 @@ export default function Home() {
 
           <Button
             type="submit"
-            className="bg-[#b6daea] text-black scale-on-hover hover:bg-[#b6daea] lg:text-xl p-6 my-4"
+            className="bg-[#b6daea] text-black hover:bg-[#c8e8f6] lg:text-xl p-6 my-4"
           >
             Envoyer
           </Button>
