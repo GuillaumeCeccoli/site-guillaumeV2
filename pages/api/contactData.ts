@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         to: MAILTO as string,
         from: MAILFROM as string,
         subject: "Un client potentiel vient de vous contacter",
-        text: `Nom: ${name}\Email: ${mail}\Message: ${message}`
+        text: `Nom: ${name}\nEmail: ${mail}\nMessage: ${message}`
     }
     
     try {
