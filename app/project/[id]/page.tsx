@@ -35,7 +35,7 @@ export default function Project() {
           alt={project.alt}
           className="rounded-xl w-full"
         />
-        <div className="flex flex-col items-start mt-20 mb-40 gap-5">
+        <div className="flex flex-col items-start mt-20 mb-40 gap-4">
           <h3 className="font-bold">Année :</h3>
           <p>{project.year}</p>
           <h3 className="font-bold">Type du projet : </h3>
