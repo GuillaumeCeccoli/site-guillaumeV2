@@ -12,16 +12,9 @@ import {
   CardFooter,
 } from "../components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import React, { useState } from "react";
 import Foot from "@/components/widgets/foot";
-import z, { set } from "zod";
+import z from "zod";
 import { Control, Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -48,6 +41,7 @@ type FormFieldComponentProps = {
   textarea: boolean;
   cols?: number;
   rows?: number;
+  width?: number;
 };
 
 const FormFieldComponent: React.FC<FormFieldComponentProps> = ({
@@ -172,53 +166,70 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center my-20" id="projects">
-        <h2 className="text-2xl py-5 lg:text-4xl">Projets réalisés</h2>
-        <div className="w-3/4 flex flex-col items-center mt-10 mb-10 lg:w-3/5">
-          <Carousel className="w-5/6 caroussel-container flex items-center">
-            <CarouselPrevious className="md:-mx-14" />
-            <CarouselContent>
-              {projects.map((project: Projects, id) => (
-                <CarouselItem key={id}>
-                  <Card className="bg-[#D4E4F7] mx-auto xl:w-3/5">
-                    <CardHeader className="w-full">
-                      <Image
-                        src={project.image}
-                        alt={project.type}
-                        width={1000}
-                        height={1000}
-                        className="rounded-lg w-full"
-                      />
-                    </CardHeader>
-                    <CardContent className="text-xs my-2 sm:text-sm md:text-lg">
-                      <p>Année : {project.year}</p>
-                      <p className="my-2">{project.type}</p>
-                      <p>{project.description}</p>
-                    </CardContent>
-                    <CardFooter>
-                      <Link
-                        href={`/project/${project.id}`}
-                        className="background-btn px-4 py-3 rounded-full mx-auto my-5 text-xs scale-on-hover sm:text-sm md:text-lg"
-                      >
-                        En savoir plus
-                      </Link>
-                    </CardFooter>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselNext className="md:-mx-14" />
-          </Carousel>
+      <section className="flex flex-col items-center my-32" id="projects">
+        <h2 className="text-2xl py-5 my-10 lg:text-4xl">Projets réalisés</h2>
+        <div className="w-3/4 flex flex-col items-center xl:flex-row xl:justify-between xl:w-4/5 xl:flex-wrap 2xl:w-3/5">
+          {projects.map((project: Projects, id) => (
+            <Card
+              key={id}
+              className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-1/3 xl:mx-2 2xl:w-5/12"
+            >
+              <CardHeader className="w-full">
+                <Image
+                  src={project.image}
+                  alt={project.type}
+                  width={1000}
+                  height={1000}
+                  className="rounded-lg w-full"
+                />
+              </CardHeader>
+              <CardContent className="text-xs my-2 sm:text-sm md:text-lg">
+                <p>Année : {project.year}</p>
+                <p className="my-2">{project.type}</p>
+                <p>{project.description}</p>
+              </CardContent>
+              <CardFooter>
+                <Link
+                  href={`/project/${project.id}`}
+                  className="background-btn px-4 py-3 rounded-full mx-auto my-5 text-xs scale-on-hover sm:text-sm md:text-lg"
+                >
+                  En savoir plus
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+          <Card className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-1/3 xl:mx-2 2xl:w-5/12">
+            <CardHeader className="w-full">
+              <Image
+                src="/assets/interview.jpg"
+                alt="Photo d'une interview"
+                width={1000}
+                height={1000}
+                className="rounded-lg w-full"
+              />
+            </CardHeader>
+            <CardContent className="text-xs my-2 sm:text-sm md:text-lg">
+              <h3>Une idée, un projet ? Parlons-en !</h3>
+            </CardContent>
+            <CardFooter>
+              <Link
+                href="#contact"
+                className="background-btn p-6 rounded-full mx-auto my-5 text-xs scale-on-hover sm:text-sm md:text-2xl font-bold xl:my-14 2xl:my-5"
+              >
+                Contact
+              </Link>
+            </CardFooter>
+          </Card>
         </div>
       </section>
       <section
-        className="mb-20 flex flex-col items-center w-10/12 sm;w-full"
+        className="mb-20 flex flex-col items-center w-11/12 sm:w-full"
         id="contact"
       >
         <h2 className="text-2xl my-20 lg:text-4xl">Contact</h2>
         <form
           action=""
-          className="flex flex-col items-center w-full md:w-4/5 md:mx-auto lg:w-2/5"
+          className="flex flex-col items-center w-full md:mx-auto lg:w-4/5 xl:w-3/5 2xl:w-2/5"
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <div className="flex flex-col items-center w-full">
