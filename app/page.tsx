@@ -168,7 +168,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col items-center my-32" id="projects">
         <h2 className="text-2xl py-5 my-10 lg:text-4xl">Projets réalisés</h2>
-        <div className="w-3/4 flex flex-col items-center xl:flex-row xl:justify-between xl:w-11/12 xl:flex-wrap 2xl:w-3/5">
+        <div className="w-3/4 flex flex-col items-center xl:flex-row xl:justify-between xl:w-10/12 xl:flex-wrap 2xl:w-3/5">
           {projects.map((project: Projects, id) => (
             <Card
               key={id}
