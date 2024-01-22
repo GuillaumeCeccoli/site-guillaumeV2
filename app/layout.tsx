@@ -1,11 +1,11 @@
 import { Toaster } from "@/components/ui/toaster";
-import Metadata from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: typeof Metadata = {
+export const metadata: Metadata = {
   title: "CreaNumerik04",
   description:
     "Développement web à Saint-Etienne-Les-Orgues dans les Alpes de Haute-Provence",
