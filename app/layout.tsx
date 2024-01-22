@@ -5,7 +5,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata: typeof Metadata = {
   title: "CreaNumerik04",
   description:
     "Développement web à Saint-Etienne-Les-Orgues dans les Alpes de Haute-Provence",
