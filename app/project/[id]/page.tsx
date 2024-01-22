@@ -1,12 +1,12 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import { projects } from "@/components/data/projects";
-import React from "react";
+import Foot from "@/components/widgets/foot";
 import Nav from "@/components/widgets/nav";
 import Image from "next/image";
-import Foot from "@/components/widgets/foot";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+import React from "react";
 
 export default function Project() {
   const params = useParams<{ id: string }>();
@@ -34,6 +34,7 @@ export default function Project() {
           height={1000}
           alt={project.alt}
           className="rounded-xl w-full xl:w-4/5"
+          onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
         />
         <div className="flex flex-col items-start mt-20 mb-40 gap-4 xl:w-4/5">
           <h3 className="font-bold">Année :</h3>

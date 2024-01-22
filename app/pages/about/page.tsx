@@ -1,7 +1,8 @@
-import Nav from "@/components/widgets/nav";
-import React from "react";
-import Image from "next/image";
+"use client";
 import Foot from "@/components/widgets/foot";
+import Nav from "@/components/widgets/nav";
+import Image from "next/image";
+import React from "react";
 
 export default function About() {
   return (
@@ -16,6 +17,7 @@ export default function About() {
             width={1000}
             height={1000}
             className="w-full"
+            onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
           />
         </div>
         <div className="flex flex-col items-start w-4/5 lg:w-1/2">
@@ -52,6 +54,7 @@ export default function About() {
             width={1000}
             height={1000}
             className="w-full"
+            onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
           />
         </div>
         <div className="flex flex-col items-start w-4/5 lg:w-1/2">

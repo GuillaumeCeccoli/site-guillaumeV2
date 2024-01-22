@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { useLinks } from "../data/links";
+import Link from "next/link";
 import useScrollHook from "../../lib/hooks/scroll";
+import { useLinks } from "../data/links";
 
 export default function Nav() {
   const { navLinks } = useLinks();
@@ -27,18 +26,16 @@ export default function Nav() {
         {navLinks.map((link, id) => (
           <li
             key={id}
-            className={`${link.underline ? "underline-from-center" : ""} ${
-              link.scale ? "scale-on-hover" : ""
-            }`}
+            className={`${
+              link.underline ? "underline-from-center" : ""
+            } hover:font-bold hover:text-[#0B37FC]`}
           >
             <Link href={link.href}>
               <span className="flex items-center space-x-2 sm:hidden">
                 {link.icon}
               </span>
 
-              <span className={`${link.className} hidden sm:block lg:text-xl`}>
-                {link.title}
-              </span>
+              <span className={`hidden sm:block lg:text-lg`}>{link.title}</span>
             </Link>
           </li>
         ))}

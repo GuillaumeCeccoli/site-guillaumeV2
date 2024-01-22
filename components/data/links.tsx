@@ -1,9 +1,8 @@
 import {
-  Home,
   CircleUserRound,
   FolderOpenDot,
-  Pencil,
   Github,
+  Home,
   Linkedin,
   MSquare,
   Mail,
@@ -15,7 +14,6 @@ export type Link = {
   title?: string;
   href: string;
   icon?: ReactElement;
-  className?: string;
   underline: boolean;
   scale: boolean;
 };
@@ -65,8 +63,7 @@ export const links: Link[] = [
     title: "Contact",
     href: "/#contact",
     icon: <Mail />,
-    className: "sm:background-btn sm:p-2 sm:font-bold sm:rounded-full",
-    underline: false,
+    underline: true,
     scale: true,
   },
 ];

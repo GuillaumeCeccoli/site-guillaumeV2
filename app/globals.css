@@ -82,7 +82,7 @@
     content: "";
     position: absolute;
     width: 0;
-    height: 1px;
+    height: 2px;
     bottom: 0;
     background: currentColor;
     transition: width 0.1s ease-in-out;
@@ -101,14 +101,18 @@
     width: 50%;
   }
   .scale-on-hover {
-    transition: transform 0.1s ease-in-out;
+    transition: transform 200ms ease-in-out;
   }
   .scale-on-hover:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   .caroussel-container {
     min-height: 200px;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer base {

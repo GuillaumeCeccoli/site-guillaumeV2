@@ -1,22 +1,23 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import Foot from "@/components/widgets/foot";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import Nav from "../components/widgets/nav";
-import { useLinks } from "../components/data/links";
 import Link from "next/link";
-import { projects, Projects } from "../components/data/projects";
+import React, { useState } from "react";
+import { Control, Controller, useForm } from "react-hook-form";
+import z from "zod";
+import { useLinks } from "../components/data/links";
+import { Projects, projects } from "../components/data/projects";
 import {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardHeader,
 } from "../components/ui/card";
-import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
-import Foot from "@/components/widgets/foot";
-import z from "zod";
-import { Control, Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import Nav from "../components/widgets/nav";
 
 const formSchema = z.object({
   name: z
@@ -70,7 +71,6 @@ const FormFieldComponent: React.FC<FormFieldComponentProps> = ({
               setIsFocused(true);
             }}
             onBlur={(e) => {
-              if (e.target.value !== "") return;
               setIsFocus({ [name]: false });
               setIsFocused(false);
             }}
@@ -93,6 +93,7 @@ const FormFieldComponent: React.FC<FormFieldComponentProps> = ({
 };
 
 export default function Home() {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -101,16 +102,18 @@ export default function Home() {
       message: "",
     },
   });
-  const onSubmit = async () => {
-    const values = form.getValues();
-
+  const onSubmit = async (data: {
+    name: string;
+    mail: string;
+    message: string;
+  }) => {
     try {
       const response = await fetch("/api/contactData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify(data),
       });
       if (!response.ok) throw new Error("Une erreur est survenue");
       form.reset({
@@ -118,8 +121,18 @@ export default function Home() {
         mail: "",
         message: "",
       });
+      setIsFocus({ name: false, mail: false, message: false });
+      toast({
+        title: "Message envoyé !",
+        description: "Votre message a bien été envoyé",
+      });
     } catch (error) {
       console.log(error);
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur est survenue, veuillez réessayer ulétieurement.",
+      });
     }
   };
 
@@ -140,7 +153,7 @@ export default function Home() {
               <Link
                 key={id}
                 href={link.href}
-                className="flex flex-col items-center scale-on-hover"
+                className="flex flex-col items-center scale-on-hover hover:text-[#0B37FC]"
               >
                 <span className="pb-1 size-icon">{link.icon}</span>
                 <span className="text-sm">{link.title}</span>
@@ -156,6 +169,7 @@ export default function Home() {
               height={1000}
               alt="Photo de Guillaume Ceccoli format portrait"
               className="w-full"
+              onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
             />
           </div>
           <p className="italic mt-16 text-center w-4/5 sm:text-lg md:w-1/2 md:mt-0 lg:w-1/3 xl:w-2/5">
@@ -166,13 +180,16 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center my-32" id="projects">
+      <section
+        className="flex flex-col items-center my-32 py-10 bg-[#e7f0fa]"
+        id="projects"
+      >
         <h2 className="text-2xl py-5 my-10 lg:text-4xl">Projets réalisés</h2>
         <div className="w-3/4 flex flex-col items-center xl:flex-row xl:justify-between xl:w-10/12 xl:flex-wrap 2xl:w-3/5">
           {projects.map((project: Projects, id) => (
             <Card
               key={id}
-              className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12"
+              className="bg-[#D4E4F7] my-10 scale-on-hover lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12 hover:shadow-lg"
             >
               <CardHeader className="w-full">
                 <Image
@@ -181,6 +198,7 @@ export default function Home() {
                   width={1000}
                   height={1000}
                   className="rounded-lg w-full"
+                  onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
                 />
               </CardHeader>
               <CardContent className="text-xs my-2 sm:text-sm md:text-lg">
@@ -191,14 +209,14 @@ export default function Home() {
               <CardFooter>
                 <Link
                   href={`/project/${project.id}`}
-                  className="background-btn px-4 py-3 rounded-full mx-auto my-5 text-xs scale-on-hover sm:text-sm md:text-lg"
+                  className="background-btn px-4 py-3 rounded-full mx-auto my-5 text-xs sm:text-sm md:text-lg hover:font-bold hover:shadow-lg"
                 >
                   En savoir plus
                 </Link>
               </CardFooter>
             </Card>
           ))}
-          <Card className="bg-[#D4E4F7] my-10 lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12">
+          <Card className="bg-[#D4E4F7] my-10 scale-on-hover lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12">
             <CardHeader className="w-full">
               <Image
                 src="/assets/interview.jpg"
@@ -206,6 +224,7 @@ export default function Home() {
                 width={1000}
                 height={1000}
                 className="rounded-lg w-full"
+                onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
               />
             </CardHeader>
             <CardContent className="text-xs my-2 sm:text-sm md:text-lg">
@@ -214,7 +233,7 @@ export default function Home() {
             <CardFooter>
               <Link
                 href="#contact"
-                className="background-btn p-6 rounded-full mx-auto my-5 text-xs scale-on-hover sm:text-sm md:text-2xl font-bold"
+                className="background-btn px-4 py-3 rounded-full mx-auto my-8 text-xs sm:text-sm md:text-lg hover:font-bold hover:shadow-lg"
               >
                 Contact
               </Link>
@@ -266,7 +285,7 @@ export default function Home() {
 
           <Button
             type="submit"
-            className="bg-[#b6daea] text-black hover:bg-[#c8e8f6] lg:text-xl p-6 my-4"
+            className="bg-[#b6daea] text-black hover:font-bold hover:bg-[#b6daea] hover:shadow-lg lg:text-xl p-6 my-4"
           >
             Envoyer
           </Button>
