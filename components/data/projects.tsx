@@ -22,7 +22,7 @@ export const projects: Projects[] = [
     title: "Delphine Ceccoli",
     detail:
       "Le but de ce projet était de réaliser entièrement un site web pour une psychologue. Le site devait être parfaitement responsive et respcter les normes d'accessibilité. Le site devait également être optimisé pour le référencement naturel. Nous avons donc du démarré par une maquette, réalisée sur Figma. Une fois la maquette validée par la cliente, je me suis attelé à l'intégration. J'ai utilisé le framework Next.JS, en utilisant TypeScript et TailwindCSS, ainsi que la librairie Shadcn/ui pour certains composants comme les boutons et le formulaire. Pour ce qui est du formulaire, j'ai réalisé une API avec Next.JS, qui envoie les données du formulaire sur l'adresse mail de la cliente, j'ai utilisé le service tier SendGrid. J'ai également utilisé la librairie React Hook Form pour la validation du formulaire. Enfin, j'ai utilisé la librairie React-Toastify pour afficher des messages d'erreur ou de succès lors de l'envoi du formulaire. Ce site a été deployé sur Vercel.",
-    href: "https://delphine-ceccoli.vercel.app/",
+    href: "https://www.ceccoli-delphine.fr/",
     techno: [
       "/technos/figma.svg",
       "/technos/nextjs.svg",
