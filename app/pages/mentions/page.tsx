@@ -5,7 +5,7 @@ export default function Mentions() {
   return (
     <div className="w-full flex flex-col items-center">
       <Nav />
-      <div className="w-full flex flex-col items-start mx-auto my-20 gap-5 sm:mt-40 md:items-center">
+      <div className="w-full flex flex-col items-start mx-auto pt-20 gap-5 sm:pt-40 md:items-center">
         <h1 className="text-blue-600 font-bold">Mentions légales : </h1>
         <h2 className="underline">Editeur du site : </h2>
         <p>
@@ -34,7 +34,9 @@ export default function Mentions() {
           <strong>Non assujetti à la TVA</strong>
         </p>
       </div>
-      <Foot />
+      <div className="fixed bottom-0 w-full">
+        <Foot />
+      </div>
     </div>
   );
 }
