@@ -1,10 +1,12 @@
-import React from "react";
+import Link from "next/link";
 
 export default function Foot() {
   return (
-    <div className="mb-20 sm:my-10 text-sm w-4/5 flex flex-col items-center text-center">
+    <div className="w-full pb-20 sm:py-10 text-sm flex flex-col items-center text-center bg-[#e7f0fa]">
       <p>Créé par Guillaume Ceccoli - CréaNumerik04. Tous droits réservés.</p>
-      <span>SIRET: 98036273500014</span>
+      <Link href="/pages/mentions" className="text-blue-600">
+        Mentions légales
+      </Link>
     </div>
   );
 }
