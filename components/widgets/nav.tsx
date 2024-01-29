@@ -11,7 +11,7 @@ export default function Nav() {
   return (
     <nav
       className={`w-full sm:h-12 fixed bottom-0 py-2 sm:py-8 sm:top-0 sm:flex sm:flex-row sm:items-center z-10 background-card sm:transition-colors sm:duration-500 sm:ease-in-out ${
-        scroll ? "sm:background-card" : "sm:bg-transparent"
+        scroll ? "sm:bg-blue-100" : "sm:bg-transparent"
       } `}
     >
       <ul className="flex flex-row justify-around items-center mx-auto w-full lg:w-3/5">
@@ -28,7 +28,7 @@ export default function Nav() {
             key={id}
             className={`${
               link.underline ? "underline-from-center" : ""
-            } hover:font-bold hover:text-[#0B37FC]`}
+            } hover:font-bold hover:text-blue-500`}
           >
             <Link href={link.href}>
               <span className="flex items-center space-x-2 sm:hidden">

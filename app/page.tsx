@@ -65,7 +65,7 @@ const FormFieldComponent: React.FC<FormFieldComponentProps> = ({
           <Field
             {...field}
             id={name}
-            className="background-card p-2 px-2 bg-blue-200 rounded-sm outline-none text-black my-8 w-full"
+            className="background-input hover:bg-blue-300 p-2 px-2 rounded-sm outline-none text-black my-8 w-full"
             onFocus={() => {
               setIsFocus({ [name]: true });
               setIsFocused(true);
@@ -143,7 +143,7 @@ export default function Home() {
     message: false,
   });
   return (
-    <div className="relative min-h-screen flex flex-col items-center background">
+    <div className="relative min-h-screen flex flex-col items-center bg-blue-200">
       <Nav />
       <section className="flex flex-col items-center w-full mt-10 sm:mt-20 lg:mt-40 sm:mb-20 xl:w-4/5">
         <div className="w-full flex flex-col items-center">
@@ -153,7 +153,7 @@ export default function Home() {
               <Link
                 key={id}
                 href={link.href}
-                className="flex flex-col items-center scale-on-hover hover:text-[#0B37FC]"
+                className="flex flex-col items-center scale-on-hover hover:text-blue-500"
               >
                 <span className="pb-1 size-icon">{link.icon}</span>
                 <span className="text-sm">{link.title}</span>
@@ -181,7 +181,7 @@ export default function Home() {
         </div>
       </section>
       <section
-        className="flex flex-col items-center my-32 py-10 bg-[#e7f0fa]"
+        className="flex flex-col items-center my-32 py-10 background-other"
         id="projects"
       >
         <h2 className="text-2xl py-5 my-10 lg:text-4xl">Projets réalisés</h2>
@@ -189,7 +189,7 @@ export default function Home() {
           {projects.map((project: Projects, id) => (
             <Card
               key={id}
-              className="bg-[#D4E4F7] my-10 scale-on-hover lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12 hover:shadow-lg"
+              className="bg-blue-200 my-10 scale-on-hover border-none lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12 hover:shadow-lg"
             >
               <CardHeader className="w-full">
                 <Image
@@ -209,14 +209,14 @@ export default function Home() {
               <CardFooter>
                 <Link
                   href={`/project/${project.id}`}
-                  className="background-btn px-4 py-3 rounded-full mx-auto my-5 text-xs sm:text-sm md:text-lg hover:font-bold hover:shadow-lg"
+                  className="bg-blue-400 px-4 py-3 rounded-full mx-auto my-5 text-xs sm:text-sm md:text-lg hover:font-bold hover:shadow-lg hover:bg-blue-500"
                 >
                   En savoir plus
                 </Link>
               </CardFooter>
             </Card>
           ))}
-          <Card className="bg-[#D4E4F7] my-10 scale-on-hover lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12">
+          <Card className="bg-blue-200 my-10 scale-on-hover border-none lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12">
             <CardHeader className="w-full">
               <Image
                 src="/assets/interview.jpg"
@@ -233,7 +233,7 @@ export default function Home() {
             <CardFooter>
               <Link
                 href="#contact"
-                className="background-btn px-4 py-3 rounded-full mx-auto my-8 text-xs sm:text-sm md:text-lg hover:font-bold hover:shadow-lg"
+                className="bg-blue-400 px-4 py-3 rounded-full mx-auto my-8 text-xs sm:text-sm md:text-lg hover:font-bold hover:shadow-lg hover:bg-blue-500"
               >
                 Contact
               </Link>
@@ -285,7 +285,7 @@ export default function Home() {
 
           <Button
             type="submit"
-            className="bg-[#b6daea] text-black hover:font-bold hover:bg-[#b6daea] hover:shadow-lg lg:text-xl p-6 my-4"
+            className="background-btn text-black bg-blue-400 hover:bg-blue-500 hover:shadow-lg lg:text-xl p-6 my-4"
           >
             Envoyer
           </Button>

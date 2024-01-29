@@ -65,13 +65,19 @@
     --ring: 0 0% 83.1%;
   }
   .background {
-    background-color: #eef7fc;
+    background-color: #bfdbfe;
+  }
+  .background-other {
+    background-color: #93c5fd;
   }
   .background-btn {
-    background-color: #b6daea;
+    background-color: #60a5fa;
   }
   .background-card {
     background-color: #d4e4f7;
+  }
+  .background-input {
+    background-color: #60a5fa;
   }
   .underline-from-center {
     position: relative;
