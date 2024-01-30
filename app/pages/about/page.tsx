@@ -6,7 +6,7 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center background">
+    <div className="relative min-h-screen flex flex-col items-center bg-blue-100">
       <Nav />
       <h1 className="mt-20 text-3xl sm:mt-40 md:text-4xl">Qui suis-je ?</h1>
       <article className="mt-20 flex flex-col items-center lg:w-4/5 lg:flex-row lg:justify-around lg:mt-44">

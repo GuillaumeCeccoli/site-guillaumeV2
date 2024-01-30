@@ -65,7 +65,7 @@ const FormFieldComponent: React.FC<FormFieldComponentProps> = ({
           <Field
             {...field}
             id={name}
-            className="background-input hover:bg-blue-300 p-2 px-2 rounded-sm outline-none text-black my-8 w-full"
+            className="bg-blue-300 hover:bg-blue-200 p-2 px-2 rounded-sm outline-none text-black my-8 w-full"
             onFocus={() => {
               setIsFocus({ [name]: true });
               setIsFocused(true);
@@ -143,7 +143,7 @@ export default function Home() {
     message: false,
   });
   return (
-    <div className="relative min-h-screen flex flex-col items-center bg-blue-200">
+    <div className="relative min-h-screen flex flex-col items-center bg-blue-100">
       <Nav />
       <section className="flex flex-col items-center w-full mt-10 sm:mt-20 lg:mt-40 sm:mb-20 xl:w-4/5">
         <div className="w-full flex flex-col items-center">
@@ -181,7 +181,7 @@ export default function Home() {
         </div>
       </section>
       <section
-        className="flex flex-col items-center my-32 py-10 background-other"
+        className="flex flex-col items-center my-32 py-10 bg-blue-200"
         id="projects"
       >
         <h2 className="text-2xl py-5 my-10 lg:text-4xl">Projets réalisés</h2>
@@ -189,7 +189,7 @@ export default function Home() {
           {projects.map((project: Projects, id) => (
             <Card
               key={id}
-              className="bg-blue-200 my-10 scale-on-hover border-none lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12 hover:shadow-lg"
+              className="bg-blue-100 my-10 scale-on-hover border-none lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12 hover:shadow-lg"
             >
               <CardHeader className="w-full">
                 <Image
@@ -216,7 +216,7 @@ export default function Home() {
               </CardFooter>
             </Card>
           ))}
-          <Card className="bg-blue-200 my-10 scale-on-hover border-none lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12">
+          <Card className="bg-blue-100 my-10 scale-on-hover border-none lg:w-4/5 xl:w-2/5 xl:mx-2 2xl:w-5/12">
             <CardHeader className="w-full">
               <Image
                 src="/assets/interview.jpg"

@@ -22,7 +22,7 @@ export default function Project() {
   }
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center background">
+    <div className="relative min-h-screen flex flex-col items-center bg-blue-100">
       <Nav />
       <div className="flex flex-col items-center w-11/12 sm:w-4/5 xl:w-3/5 mt-20 sm:mt-40">
         <h1 className="font-bold text-2xl mb-20 xl:text-4xl xl:mt-32 xl:mb-40 md:text-3xl">

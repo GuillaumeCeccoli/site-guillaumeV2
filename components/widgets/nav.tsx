@@ -10,8 +10,8 @@ export default function Nav() {
   const { scroll } = useScrollHook();
   return (
     <nav
-      className={`w-full sm:h-12 fixed bottom-0 py-2 sm:py-8 sm:top-0 sm:flex sm:flex-row sm:items-center z-10 background-card sm:transition-colors sm:duration-500 sm:ease-in-out ${
-        scroll ? "sm:bg-blue-100" : "sm:bg-transparent"
+      className={`w-full sm:h-12 fixed bottom-0 py-2 z-10 sm:py-8 sm:top-0 sm:flex sm:flex-row sm:items-center background-card sm:transition-colors sm:duration-500 sm:ease-in-out ${
+        scroll ? "sm:bg-white" : "sm:bg-transparent"
       } `}
     >
       <ul className="flex flex-row justify-around items-center mx-auto w-full lg:w-3/5">
